@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/emp_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Laxmikant"
+        android:layout_margin="8dp"
+        android:textSize="24sp"
+
+        />
+
+
+    <TextView
+        android:id="@+id/age"
+        style="@style/emp_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="30"
+        android:textSize="24sp"
+        android:layout_margin="8dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+</LinearLayout>
