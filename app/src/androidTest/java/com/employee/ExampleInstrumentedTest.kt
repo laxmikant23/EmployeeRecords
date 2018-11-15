@@ -36,7 +36,7 @@ class ExampleInstrumentedTest {
 
     @Test
     fun shouldInsert(){
-        val employee : Employee = Employee("Sachin",-2)
+        val employee : Employee = Employee("Sachin","Hello")
         empDao!!.insert(employee)
 
        // val empTest = getVa
