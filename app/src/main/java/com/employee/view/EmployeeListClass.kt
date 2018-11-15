@@ -48,7 +48,7 @@ class EmployeeListClass : AppCompatActivity() {
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val employee = Employee(data!!.getStringExtra(MainActivity.EXTRA_NAME),
-                    data.getStringExtra(MainActivity.EXTRA_AGE))
+                    data.getStringExtra(MainActivity.EXTRA_LAST_NAME))
             mEmpViewModel?.insert(employee)
         } else {
         }

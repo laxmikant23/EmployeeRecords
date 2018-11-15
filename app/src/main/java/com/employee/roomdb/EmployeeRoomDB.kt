@@ -12,17 +12,25 @@ abstract class EmployeeRoomDB : RoomDatabase() {
     abstract fun empDao(): EmployeeDao
     companion object {
         private var INSTANCE: EmployeeRoomDB? = null
+        var TEST_MODE = false
 
-        fun getInstance(context: Context): EmployeeRoomDB? {
+        fun getInstance(context: Context): EmployeeDao? {
             if (INSTANCE == null) {
                 synchronized(EmployeeRoomDB::class) {
-                    INSTANCE = Room.databaseBuilder(context.applicationContext,
-                            EmployeeRoomDB::class.java, "employee").
-                            addCallback(sRoomDatabaseCallback)
-                            .build()
+                    if (TEST_MODE) {
+                        INSTANCE = Room.inMemoryDatabaseBuilder(context, EmployeeRoomDB::class.java).allowMainThreadQueries().build()
+
+                    }else{
+                        INSTANCE = Room.databaseBuilder(context.applicationContext,
+                                EmployeeRoomDB::class.java, "employee").
+                                addCallback(sRoomDatabaseCallback)
+                                .build()
+                    }
+
                 }
+
             }
-            return INSTANCE
+            return INSTANCE!!.empDao()
         }
 
         fun destroyInstance() {

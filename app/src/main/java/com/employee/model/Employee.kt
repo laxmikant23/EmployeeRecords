@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "employee_table")
 data class Employee(
-                    @ColumnInfo(name = "name") val name: String, @ColumnInfo(name  = "age") var mAge: String){
+                    @ColumnInfo(name = "name") val name: String, @ColumnInfo(name  = "lastName") var lastName: String){
     @PrimaryKey (autoGenerate = true) var id:Int = 0
     /* @PrimaryKey(autoGenerate = true)
      private var id = 0

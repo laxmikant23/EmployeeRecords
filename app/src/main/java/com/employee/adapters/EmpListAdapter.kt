@@ -2,6 +2,7 @@ package com.mykotlinapp.model
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,11 @@ class EmpListAdapter(context:Context) : RecyclerView.Adapter<EmpListAdapter.EmpV
 
         }
 
+        fun bind(item : Employee) {
+            empItemName.text = item.name
+            empItemAge.text = item.lastName
+        }
+
     }
 
     private  var mInflater : LayoutInflater
@@ -34,6 +40,12 @@ class EmpListAdapter(context:Context) : RecyclerView.Adapter<EmpListAdapter.EmpV
     }
 
     override fun onBindViewHolder(holder: EmpViewHolder, position: Int) {
+        holder.bind(memployees!![position])
+        Log.e("AGE :: ",""+memployees!![position].lastName  )
+    }
+/*
+
+    override fun onBindViewHolder(holder: EmpViewHolder, position: Int) {
         if(memployees != null){
              val current:Employee = memployees!![position]
             holder.empItemName.setText(current.name)
@@ -43,6 +55,7 @@ class EmpListAdapter(context:Context) : RecyclerView.Adapter<EmpListAdapter.EmpV
             holder.empItemName.setText("No Employee")
         }
     }
+*/
 
     fun setWords(employees: List<Employee>){
         memployees = employees

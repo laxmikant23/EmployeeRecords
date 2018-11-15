@@ -11,17 +11,17 @@ class EmployeeRepo(application : Application){
     private val listLiveData: LiveData<List<Employee>>
 
     init {
-        val habitRoomDatabase = EmployeeRoomDB.getInstance(application)
-        empDao = habitRoomDatabase?.empDao()!!
-        listLiveData = empDao?.getALlEmployees()
+        val empRoomDatabase = EmployeeRoomDB.getInstance(application)
+        empDao = empRoomDatabase!!
+        listLiveData = empDao.getALlEmployees()
     }
 
     fun getAllEmployees(): LiveData<List<Employee>> {
         return listLiveData
     }
 
-    fun insert(word: Employee) {
-        insertAsyncTask(empDao).execute(word)
+    fun insert(emp: Employee) {
+        insertAsyncTask(empDao).execute(emp)
     }
 
     private class insertAsyncTask internal constructor(private val mAsyncTaskDao: EmployeeDao) : AsyncTask<Employee, Void, Void>() {

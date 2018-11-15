@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EmployeeRecords</string>
+    <string name="enter_last_name">Enter LName</string>
+    <string name="enter_name">Enter Name</string>
 </resources>

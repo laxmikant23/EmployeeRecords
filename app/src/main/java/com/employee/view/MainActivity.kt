@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
                 val employeeName = mEditNameView!!.text.toString()
-                val employeeage = mEditAgeView!!.text.toString()
+                val employeeLastName = mEditAgeView!!.text.toString()
 
                 replyIntent.putExtra(EXTRA_NAME, employeeName)
-                replyIntent.putExtra(EXTRA_AGE, employeeage)
+                replyIntent.putExtra(EXTRA_LAST_NAME, employeeLastName)
 
                 setResult(Activity.RESULT_OK, replyIntent)
             }
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
 
         val EXTRA_NAME = "name"
-        val EXTRA_AGE = "age"
+        val EXTRA_LAST_NAME = "lastName"
 
     }
 }
